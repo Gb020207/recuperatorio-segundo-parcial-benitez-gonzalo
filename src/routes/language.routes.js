@@ -4,6 +4,8 @@ const routesLanguage = Router();
 
 routesLanguage.post('/language',createLanguage)
 routesLanguage.get('/language',getAllLanguage)
-route('/language/:id',getLanguageById)
-('/language/:id',updateLanguage)
-('/language/:id',deleteLanguage)
+routesLanguage.get('/language/:id',getLanguageById)
+routesLanguage.put('/language/:id',updateLanguage)
+routesLanguage.delete('/language/:id',deleteLanguage)
+
+export default routesLanguage;
