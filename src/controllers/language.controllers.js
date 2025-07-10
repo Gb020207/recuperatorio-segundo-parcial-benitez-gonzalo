@@ -41,11 +41,11 @@ export const createLanguage = async (req, res) => {
 }
 export const getAllLanguage = async (req, res) => {
     try {
-     const Languages = Language.findAll();
+     const Languages = await Language.findAll();
      res.json({
         count: Languages.length,
-        data: Languages  
-})
+        data: Languages  ,
+});
     } catch (error) {
         console.log(error)
         return res.status(404).json({
@@ -57,13 +57,14 @@ export const getAllLanguage = async (req, res) => {
 export const getLanguageById = async (req, res) => {
     try {
         const { id } = req.params;
-        const Languages = Language.findByPk(id)
+        const Languages = await Language.findByPk(id)
 
         if(!Languages){
             return res.status(404).json({
                 msg: "No se encontraron registros con ese id"
             })
         }
+        return res.status(200).json(Languages);
     } catch (error) {
         console.log(error)
         return res.status(500).json({
