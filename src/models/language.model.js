@@ -5,7 +5,7 @@ const Language = sequelize.define('language',{
     id:{type: DataTypes.INTEGER, allowNull: false ,primaryKey: true,autoIncrement: true},
     name:{type: DataTypes.STRING, allowNull: false, unique: true},
     paradigm:{type: DataTypes.STRING, allowNull: false},
-    release:{type: DataTypes.INTEGER}
+    release:{type: DataTypes.FLOAT, allowNull:true}
 }
 
 );
